@@ -1,158 +1,201 @@
-# Deep Reader — 深度阅读技能
+# Deep Reader
 
-> 依据《如何阅读一本书》的阅读方法论，对书籍进行分层次、按类型的深度分析，输出结构笔记、概念笔记或辩证笔记。
-
----
-
-## 这个技能是什么
-
-Deep Reader 是一个 WorkBuddy 技能，帮助你用**《如何阅读一本书》**的方法论来读一本书，或者围绕一个主题读多本书。
-
-它不是简单地"总结书的内容"，而是依据阅读目的，选择合适的阅读深度，引导你真正理解一本书的骨架、论证逻辑、以及它是否说得有道理。
+> A WorkBuddy skill for deep, layered book analysis — powered by the methodology of *How to Read a Book* (Adler & Van Doren).
 
 ---
 
-## 快速上手
+## What It Does
 
-### 单本书 — 检视阅读（了解大致内容）
+Deep Reader helps you engage with a book — or a cluster of books around a theme — the way a serious reader would.
 
-```
-@skill://deep-reader 这本书讲了什么？'/path/to/book.epub'
-```
-
-输出：书籍类型、结构大纲、核心主题概括（结构笔记）
+It doesn't just summarize. Based on your intent, it selects the appropriate reading depth: a quick structural scan, a full analytical breakdown, or a cross-book thematic comparison. It produces structured notes with original quotes, traces argument chains, and asks you to think critically — not just consume.
 
 ---
 
-### 单本书 — 分析阅读（深入理解论证过程）
+## Quick Start
+
+### Single book — Inspectional Reading (get the gist)
 
 ```
-@skill://deep-reader 深度阅读这本书 '/path/to/book.epub'
+@skill://deep-reader What is this book about? '/path/to/book.epub'
 ```
 
-或者问具体问题：
-
-```
-@skill://deep-reader 作者如何论证"XX"这个观点？'/path/to/book.epub'
-@skill://deep-reader 我不太同意作者对"XX"的看法，分析一下他的论证 '/path/to/book.epub'
-@skill://deep-reader 这本书对我有什么实际意义？'/path/to/book.epub'
-```
-
-输出：核心观点分析 + 原文引用 + 批判性评价（概念笔记）
+Output: book type, structural outline, thematic summary (Structural Note)
 
 ---
 
-### 多本书 — 主题阅读（围绕同一主题比较）
+### Single book — Analytical Reading (understand the argument in depth)
 
 ```
-@skill://deep-reader 围绕"阅读方法论"这个主题，对比分析以下两本书：'/path/book1.epub' '/path/book2.epub'
+@skill://deep-reader Read this book deeply '/path/to/book.epub'
 ```
 
-输出：主题词汇表 + 各方观点梳理 + 共识与争议 + 综合分析框架（辩证笔记）
+Or ask a focused question:
+
+```
+@skill://deep-reader How does the author argue for "X"? '/path/to/book.epub'
+@skill://deep-reader I'm not convinced by the author's case for "X" — walk me through the argument '/path/to/book.epub'
+@skill://deep-reader What does this book mean for me in practice? '/path/to/book.epub'
+```
+
+Output: core argument analysis + original quotes + critical evaluation (Conceptual Note)
 
 ---
 
-## 三种阅读层次与对应输出
+### Multiple books — Syntopical Reading (compare books around a theme)
 
-| 需求 | 阅读方式 | 输出类型 | 适用场景 |
+```
+@skill://deep-reader Compare these two books on the theme of "reading methodology": '/path/book1.epub' '/path/book2.epub'
+```
+
+Output: shared vocabulary, positions of each author, points of agreement and disagreement, integrated analytical framework (Dialectical Note)
+
+---
+
+## Three Reading Levels
+
+| Your Need | Reading Mode | Output Type | Best For |
 |---|---|---|---|
-| 了解书的大致内容和框架 | **检视阅读** | 结构笔记 | 判断是否值得深读；快速获取概览 |
-| 深入理解观点、论据、论证过程 | **分析阅读** | 概念笔记 | 认真读一本书；准备写作或讨论 |
-| 围绕同一主题对比多本书 | **主题阅读** | 辩证笔记 | 研究某个领域；形成自己的观点框架 |
+| Get the structure and main idea | **Inspectional** | Structural Note | Deciding whether to read it; quick overview |
+| Understand arguments, evidence, and logic | **Analytical** | Conceptual Note | Serious reading; writing or discussion prep |
+| Compare multiple books on one theme | **Syntopical** | Dialectical Note | Field research; building your own viewpoint |
 
 ---
 
-## 支持的书籍格式
+## Supported File Formats
 
-| 格式 | 处理方式 |
+| Format | How It's Handled |
 |---|---|
-| `.epub` | 自动解压，提取章节 xhtml 内容 |
-| `.pdf` | 调用 `pdf` 技能提取文本 |
-| `.txt` | 直接读取 |
+| `.epub` | Auto-extracted; chapters parsed from XHTML |
+| `.pdf` | Text extracted via the `pdf` skill |
+| `.txt` | Read directly |
 
 ---
 
-## 触发关键词参考
+## Trigger Keywords
 
-**触发检视阅读**：
-"这本书讲了什么"、"主要内容"、"核心观点"、"大概讲什么"、"简要介绍"、"值不值得读"
+**Inspectional Reading** is triggered by phrases like:
+"what is this book about", "main idea", "core argument", "overview", "brief intro", "worth reading", "is it good"
 
-**触发分析阅读**：
-"详细分析"、"深入分析"、"论证过程"、"论据"、"如何论证的"、"核心论点"、"批判性分析"
+**Analytical Reading** is triggered by phrases like:
+"deep dive", "analyze in depth", "how does the author argue", "evidence", "reasoning", "critical analysis", "is the argument sound"
 
-**触发主题阅读**：
-"多本书"、"对比分析"、"围绕XX主题"、"比较这几本书"、"综合分析"
+**Syntopical Reading** is triggered by phrases like:
+"multiple books", "compare", "around the theme of", "cross-book analysis", "synthesize"
 
 ---
 
-## 书籍类型适配
+## Book Type Adaptation
 
-技能会根据书籍类型自动调整分析侧重点：
+The skill automatically adjusts its analysis based on genre:
 
-| 书籍类型 | 分析侧重点 |
+| Book Type | Analysis Focus |
 |---|---|
-| **虚构作品**（小说、戏剧、诗歌） | 情节、人物、感受体验；不用论说性作品标准批评 |
-| **实用型书** | 作者的目的是否达成？我愿意照做吗？ |
-| **哲学书** | 思考问题本身，而非记住结论 |
-| **历史书** | 警惕作者的选择性；关注史实的诠释立场 |
-| **科学/数学书** | 找出核心问题；关注公理与假设 |
-| **社会科学书** | 注意关键词的多义性；建议主题阅读 |
+| **Fiction** (novel, drama, poetry) | Experience over argument; character, plot, mood — not logical proof |
+| **Practical / How-to** | Did the author achieve the goal? Am I willing to act on this? |
+| **Philosophy** | Engage with the *question*, not just the answer; test claims against your own experience |
+| **History** | Notice what facts were *chosen*, and why; be alert to the author's interpretive stance |
+| **Science / Math** | Identify the core research question; focus on axioms, assumptions, and core findings |
+| **Social Science** | Watch for keyword ambiguity across authors; syntopical reading usually required |
 
 ---
 
-## 技能结构
+## What Each Output Contains
+
+### Structural Note (Inspectional Reading)
+- Book type and genre
+- Chapter structure and outline
+- Core theme in one or two sentences
+- Author's apparent intent
+
+### Conceptual Note (Analytical Reading)
+- **What is the book about?** — Theme, skeleton, central question
+- **What does the author say, and how?** — Key arguments + original quotes + reasoning chains
+- **Is the author right?** — What holds up; where the limits or weak points are
+- Reading practice suggestions
+
+### Dialectical Note (Syntopical Reading)
+- Shared vocabulary table across all books
+- Each author's position on the theme
+- Points of genuine consensus
+- Root causes of disagreement (different premises, evidence, values)
+- Integrated analytical framework + your own stance
+
+---
+
+## Design Philosophy
+
+> "The person who says he knows what he thinks but cannot express it usually does not know what he thinks."
+> — Mortimer Adler, *How to Read a Book*
+
+Deep Reader is not meant to replace reading. It's a thinking partner for when you read.
+
+After each analysis, the skill prompts you to make your own notes — underline the key claims, number the steps in an argument, write your objections in the margins. Real reading is a skill that belongs to the reader. AI can scaffold it; only you can do it.
+
+---
+
+## Skill Structure
 
 ```
 deep-reader/
-├── SKILL.md                              # 技能主体（执行逻辑）
-├── README.md                             # 本文档
+├── SKILL.md                              # Skill logic and execution rules
+├── README.md                             # Chinese documentation
+├── README_EN.md                          # This file
 ├── references/
-│   └── reading-methodology.md            # 《如何阅读一本书》方法论参考
+│   └── reading-methodology.md            # Methodology reference (from How to Read a Book)
 └── assets/
-    ├── improvement-directions.md         # 技能改进方向记录
-    ├── discussion-llm-era.md            # 大模型时代阅读意义讨论
-    ├── 《如何阅读一本书》检视阅读报告.md  # 检视阅读 Demo
-    ├── 娱乐至死-深度阅读报告.md           # 分析阅读 Demo
-    ├── 《1984》深度阅读报告.md            # 分析阅读 Demo
-    ├── 《美丽新世界》深度阅读报告.md       # 分析阅读 Demo
-    ├── 三书综合主题阅读报告.md            # 主题阅读 Demo
-    └── 从《美丽新世界》《1984》到《娱乐至死》——一部自由主义的思想危机史.md  # 主题阅读 Demo
+    ├── improvement-directions.md         # Skill improvement notes
+    ├── discussion-llm-era.md            # Discussion: does reading still matter in the LLM era?
+    ├── 《如何阅读一本书》检视阅读报告.md  # Demo: Inspectional Reading
+    ├── 娱乐至死-深度阅读报告.md           # Demo: Analytical Reading — Amusing Ourselves to Death
+    ├── 《1984》深度阅读报告.md            # Demo: Analytical Reading — Nineteen Eighty-Four
+    ├── 《美丽新世界》深度阅读报告.md       # Demo: Analytical Reading — Brave New World
+    ├── 三书综合主题阅读报告.md            # Demo: Syntopical Reading — three books on freedom
+    └── 从《美丽新世界》《1984》到《娱乐至死》——...  # Demo: alternative syntopical frame
 ```
 
 ---
 
-## 设计理念
+## Methodology Source
 
-> "让一本书真正属于你自己的唯一方法，就是在那本书上写点什么。"
-> — 莫提默·艾德勒，《如何阅读一本书》
+This skill is grounded in the four-level reading framework from *How to Read a Book* by Mortimer Adler and Charles Van Doren (1940, revised 1972):
 
-这个技能的核心不是替你把书"消化掉"——而是帮你**更好地与一本书对话**。
+1. **Elementary Reading** — basic comprehension
+2. **Inspectional Reading** — systematic skimming to grasp the whole
+3. **Analytical Reading** — complete, thorough, deep reading
+4. **Syntopical Reading** — reading across multiple books on the same theme
 
-分析阅读完成后，技能会引导你做自己的笔记，提问，反驳，形成自己的判断。真正的阅读，不会因为 AI 能总结一本书而变得没有意义；它意味着一种思维能力的训练，这件事必须由你自己来完成。
-
-## Demo 示例
-
-技能已完成以下真实书籍分析，可作为输出参考：
-
-**分析阅读 Demo（单本书深度分析）：**
-- **`assets/娱乐至死-深度阅读报告.md`** — 对尼尔·波兹曼《娱乐至死》完整深度分析，含原文引用与批判性评价
-- **`assets/《1984》深度阅读报告.md`** — 对乔治·奥威尔《1984》的完整深度分析
-- **`assets/《美丽新世界》深度阅读报告.md`** — 对阿道司·赫胥黎《美丽新世界》的完整深度分析
-- **`assets/《如何阅读一本书》检视阅读报告.md`** — 检视阅读 Demo，对技能方法论源头的系统梳理
-
-**主题阅读 Demo（多本书比较分析）：**
-- **`assets/三书综合主题阅读报告.md`** — 围绕"自由之死"主题同时分析奥威尔《1984》、赫胥黎《美丽新世界》、波兹曼《娱乐至死》三书，输出共识与分歧
-- **`assets/从《美丽新世界》《1984》到《娱乐至死》——一部自由主义的思想危机史.md`** — 同主题的另一种分析视角与叙事框架
+The four questions every active reader should ask, from the book:
+1. What is the book about as a whole?
+2. What is being said in detail, and how?
+3. Is the book true, in whole or part?
+4. What of it — what does it mean for you?
 
 ---
 
-## 版本记录
+## Demo Outputs
 
-| 版本 | 更新内容 |
+The following real-book analyses were produced with this skill:
+
+**Analytical Reading (single book):**
+- `assets/娱乐至死-深度阅读报告.md` — *Amusing Ourselves to Death* by Neil Postman
+- `assets/《1984》深度阅读报告.md` — *Nineteen Eighty-Four* by George Orwell
+- `assets/《美丽新世界》深度阅读报告.md` — *Brave New World* by Aldous Huxley
+- `assets/《如何阅读一本书》检视阅读报告.md` — *How to Read a Book* (the methodology source)
+
+**Syntopical Reading (multi-book theme):**
+- `assets/三书综合主题阅读报告.md` — Three books on "the death of freedom" (Orwell, Huxley, Postman)
+- `assets/从《美丽新世界》《1984》到《娱乐至死》……` — The same theme, different framing
+
+---
+
+## Version History
+
+| Version | Changes |
 |---|---|
-| v1.0 | 初版：三层阅读层次、基础流程、检视/分析/主题三种输出格式 |
-| v2.0 | 增加精细化触发词映射、书籍类型适配模块、主题阅读四步细化、做笔记引导、"受教"心态、阅读习惯养成模块 |
+| v1.0 | Initial release: three reading levels, core pipeline, three output formats |
+| v2.0 | Added keyword trigger mapping, book-type adaptation, four-step syntopical reading, note-taking guidance, "receptive reader" attitude module, reading habit formation module |
 
 ---
 
-*本技能在使用过程中持续迭代完善。*
+*This skill evolves through use. Feedback and improvement notes are tracked in `assets/improvement-directions.md`.*
